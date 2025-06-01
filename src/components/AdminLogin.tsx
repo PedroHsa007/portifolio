@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 
 interface AdminLoginProps {
   onLogin: (isAdmin: boolean) => void;
+  onClose: () => void; // nova prop para fechar a aba
 }
 
 const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin }) => {
