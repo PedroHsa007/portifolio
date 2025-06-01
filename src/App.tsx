@@ -50,6 +50,8 @@ function App() {
     return localStorage.getItem('isAdmin') === 'true';
   });
 
+  const [showLoginBox, setShowLoginBox] = useState(true);
+
   const handleAdminLogin = (status: boolean) => {
     setIsAdmin(status);
   };
@@ -60,7 +62,12 @@ function App() {
         <Navbar />
         <FloatingIcons />
         <AnimatedRoutes />
-        {!isAdmin && <AdminLogin onLogin={handleAdminLogin} />}
+        {!isAdmin && showLoginBox && (
+          <AdminLogin
+            onLogin={handleAdminLogin}
+            onClose={() => setShowLoginBox(false)}
+          />
+        )}
       </div>
     </Router>
   );
